@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+/* nav css*/
+h1{
+  font-size: 50px;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  padding: 5rem;
+  background-color: darkkhaki;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 50px;
+  color: darkgreen;
+}
+/* signup forms css */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 4rem;
+  color: darkgreen;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+  font-size: 1.4rem;
+}
+h2{
+  font-size: 3rem;
+  font-weight: bold;
+
+}
