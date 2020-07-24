@@ -13,6 +13,7 @@ function App() {
       <Router>
       <Switch>
         {/* <Route exact path="/" component={Home} /> */}
+        <Route exact path ="/" component={Nav} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         </Switch>
