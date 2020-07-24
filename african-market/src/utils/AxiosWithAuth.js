@@ -2,13 +2,13 @@ import Axios from "axios";
 
 // const baseUrl = add base URl Here? 
 
- export const AxiosWithAuth () => {
+ export const AxiosWithAuth = () => {
      const token = localStorage.getItem("token");
 
     return Axios.create ({
         baseURL,
         headers: {
-            Authorization: token,,
+            Authorization: token,
         }
     });
 
