@@ -1,11 +1,15 @@
-import React from 'react'
+import Axios from "axios";
 
-function AxiosWithAuth() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+// const baseUrl = add base URl Here? 
 
-export default AxiosWithAuth
+ export const AxiosWithAuth () => {
+     const token = localStorage.getItem("token");
+
+    return Axios.create ({
+        baseURL,
+        headers: {
+            Authorization: token,,
+        }
+    });
+
+export const axios = Axios.create({baseURl});
