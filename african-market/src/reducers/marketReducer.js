@@ -24,6 +24,15 @@ export const marketReducer = (state = initialState, action) => {
                 isFetching: false,
                 error: action.payload
             }
+        case 'ITEM_POST' :
+            return {
+                ...state,
+                market: action.payload,
+                isFetching: false,
+                error: ''
+            }
+        default:
+            return state;    
         
     }
 }
