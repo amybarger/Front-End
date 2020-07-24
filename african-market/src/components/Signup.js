@@ -22,7 +22,8 @@ export default function Signup() {
         Email: "",
         Name: "",
         password: "",
-        terms: false
+        username: ""
+        
     });
 
 
@@ -38,7 +39,7 @@ export default function Signup() {
         name: "",
         email: "",
         password: "",
-        terms: ""
+        username: ""
     });
 
 
@@ -61,7 +62,6 @@ export default function Signup() {
                 });
             });
     };
-
 
     const inputChange = e => {
         e.persist();
@@ -86,7 +86,17 @@ export default function Signup() {
             <form onSubmit={formSubmit}>
                 <h2> Welcome</h2>
                 <label htmlFor="name">
-                    Name
+                    Full Name
+          <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        value={formState.name}
+                        onChange={inputChange}
+                    />
+                </label>
+                <label htmlFor="username">
+                    Username 
           <input
                         type="text"
                         name="name"
@@ -125,19 +135,6 @@ export default function Signup() {
                 </label>
 
 
-                <label htmlFor="terms">
-                    <input
-                        id="terms"
-                        name="terms"
-                        type="checkbox"
-                        checked={formState.terms}
-                        onChange={inputChange}
-                    />
-          Terms of Service
-          {errorState.terms.length > 0 ? (
-                        <p className="error">{errorState.terms}</p>
-                    ) : null}
-                </label>
                 <button disabled={buttonDisabled}>Submit</button>
             </form>
         </div>

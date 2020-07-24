@@ -40,6 +40,7 @@
 h1{
   font-size: 50px;
   font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 nav {
   display: flex;
@@ -53,12 +54,14 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 30px;
+  
 }
 .nav-links a {
   text-decoration: none;
   font-weight: bold;
   margin-right: 50px;
   color: darkgreen;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 /* signup forms css */
 form {
@@ -69,16 +72,31 @@ form {
   margin: 0 auto;
   padding: 4rem;
   color: darkgreen;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 label {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 10px 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 h2{
   font-size: 3rem;
   font-weight: bold;
+  text-align: center;
 
+}
+input {
+  /* width: 100%; */
+  width: 400px;
+  margin: 5px;
+  display: block;
+  border: 2px solid darkgreen;
+  padding: 10px;
+}
+button{
+  width: 150px;
+  display: inline-block;
+  padding:10px;
 }

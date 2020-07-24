@@ -11,7 +11,6 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <Home /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
