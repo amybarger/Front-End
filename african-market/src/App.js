@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from "./components/Nav"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
-import Home from "./components/Home"
+// import Home from "./components/Home"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import './App.css';
 
@@ -12,7 +12,7 @@ function App() {
     <div>
       <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} /> */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         </Switch>
