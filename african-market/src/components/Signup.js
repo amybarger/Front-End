@@ -7,25 +7,21 @@ import axios from "axios";
 
 const formSchema = yup.object().shape({
     name: yup.string().required("Name is a required field"),
+    username: yup.string().required("username is a required field"),
     email: yup
         .string()
         .email("Email address required")
         .required("Must include email address"),
     password: yup.string().required(),
-    terms: yup.boolean().oneOf([true], "Please agree to term to continue")
 });
 
-
 export default function Signup() {
-
     const [formState, setFormState] = useState({
         Email: "",
         Name: "",
-        password: "",
-        username: ""
-        
+        Password: "",
+        Username: ""
     });
-
 
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -42,10 +38,9 @@ export default function Signup() {
         username: ""
     });
 
-
     const validate = e => {
         let value =
-            e.target.type === "checkbox" ? e.target.checked : e.target.value;
+            e.target.value;
         yup
             .reach(formSchema, e.target.name)
             .validate(value)
@@ -67,7 +62,7 @@ export default function Signup() {
         e.persist();
         validate(e);
         let value =
-            e.target.type === "checkbox" ? e.target.checked : e.target.value;
+            e.target.value;
         setFormState({ ...formState, [e.target.name]: value });
     };
 
@@ -96,12 +91,12 @@ export default function Signup() {
                     />
                 </label>
                 <label htmlFor="username">
-                    Username 
+                    Username
           <input
                         type="text"
-                        name="name"
-                        id="name"
-                        value={formState.name}
+                        name="username"
+                        id="username"
+                        value={formState.username}
                         onChange={inputChange}
                     />
                 </label>
