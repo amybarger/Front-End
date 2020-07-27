@@ -18,6 +18,11 @@ function App() {
         <Route path="/signup" component={Signup} />
         </Switch>
       </Router>
+      {/* <div>
+        <img
+        src= "https://dx6iy6yk2x0g.cloudfront.net/images/0c6/c4b/0c6c4b57a9e105389df77fee735648af0f99107b-640x360.jpg?compressionQuality=80&id=51c386f06747df592c000006&op=cropThumbnail&version=1"
+        />
+      </div> */}
     </div>
   );
 }

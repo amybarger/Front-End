@@ -12,6 +12,7 @@ function Nav() {
           <Link to="/signup">Sign Up</Link>
         </div>
       </nav>
+     
     </div>
   )
 }
