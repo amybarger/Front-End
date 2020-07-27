@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 function Nav() {
   return (
     <div>
+      {/* this is a comment  */}
       <nav className="nav-header">
         <h1>African Marketplace</h1>
         <div className="nav-links">
