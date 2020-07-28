@@ -3,4 +3,4 @@ import { marketReducer } from './marketReducer';
 
 export default combineReducers({
     marketReducer
-});
+});            return {
