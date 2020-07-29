@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchMarket } from '../actions/marketActions';   
 
 function Additem() {
     return (

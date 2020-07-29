@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           return <Component />;
         } else {
           //redirect to login
-          return <Redirect to='login' />; //Change one we get the actual route from react 1
+          return <Redirect to='/login' />; 
         }
       }}
     />

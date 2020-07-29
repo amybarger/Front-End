@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Nav from "./Nav"
 import * as yup from "yup";
-import axios from "axios";
+// import axios from "axios"; Furno's axios call
 
+import { AxiosWithAuth } from '../utils/AxiosWithAuth';
+import { useHistory } from 'react-router-dom';
 
 
 const formSchema = yup.object().shape({
@@ -57,14 +59,26 @@ export default function LoginForm() {
     setFormState({ ...formState, [e.target.name]: value });
   };
 
-  const formSubmit = e => {
-    e.preventDefault();
-    console.log("form submitted!");
-    axios
-      .post("https://reqres.in/api/users", formState)
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
-  };
+  const formSubmit = (user) => {
+
+    // formSubmit = e => {
+      //   e.preventDefault();
+      //   console.log("form submitted!");
+      //   axios
+      //     .post("https://build-week-app.herokuapp.com", formState)
+      //     .then(response => console.log(response))
+      //     .catch(err => console.log(err));
+      // };
+      AxiosWithAuth()
+      .post('/api/login', user)
+      .then((res) => {
+        console.log(res, 'res from post');
+        localStorage.setItem('token', JSON.stringify(res.data.token));
+        localStorage.setItem('userId', JSON.stringify(res.data.data.id));
+        // push('/?')get the information or build it asap me!
+      });
+    };
+
   return (
     <div>
       <Nav />
