@@ -4,7 +4,7 @@ import Nav from "./Nav"
 import * as yup from "yup";
 import axios from "axios";
 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const url = 'https://build-week-app.herokuapp.com/api/register';
 
