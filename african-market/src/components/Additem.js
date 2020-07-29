@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchMarket } from '../actions/marketActions';   
 
-function Additem() {
+const Additem = (props) => {
+
+    const [formState, setFormState] = useState()
     return (
         <div>
             
@@ -11,3 +13,4 @@ function Additem() {
 }
 
 export default Additem
+         
