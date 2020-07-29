@@ -4,6 +4,9 @@ import Nav from "./Nav"
 import * as yup from "yup";
 import axios from "axios";
 
+// import { useHistory } from 'react-router-dom';
+
+const url = 'https://build-week-app.herokuapp.com/api/register';
 
 const formSchema = yup.object().shape({
     name: yup.string().required("Name is a required field"),
@@ -70,7 +73,7 @@ export default function Signup() {
         e.preventDefault();
         console.log("form submitted!");
         axios
-            .post("https://reqres.in/api/users", formState)
+            .post("https://build-week-app.herokuapp.com/api/register", formState)
             .then(response => console.log(response))
             .catch(err => console.log(err));
     };
