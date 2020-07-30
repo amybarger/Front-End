@@ -17,6 +17,7 @@ export default function LoginForm() {
     Password: "",
     Username: ""
   });
+ const history = useHistory() 
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -59,7 +60,7 @@ export default function LoginForm() {
     setFormState({ ...formState, [e.target.name]: value });
   };
 
-  const formSubmit = (user) => {
+  const formSubmit = user => {
 
     // formSubmit = e => {
       //   e.preventDefault();
@@ -75,7 +76,10 @@ export default function LoginForm() {
         console.log(res, 'res from post');
         localStorage.setItem('token', JSON.stringify(res.data.token));
         localStorage.setItem('userId', JSON.stringify(res.data.data.id));
-        // push('/?')get the information or build it asap me!
+        history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.log(err);
       });
     };
 
@@ -115,6 +119,3 @@ export default function LoginForm() {
     </div>
   );
 }
-
-
-

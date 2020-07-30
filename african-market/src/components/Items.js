@@ -30,7 +30,7 @@ const Item = (props) => {
  const mapStateToProps = state => {
      console.log(state);
      return {
-         item: state.marketReducer.market
+         item: state.marketReducer.market,
          error: state.marketReducer.error
      }
  }
@@ -39,6 +39,16 @@ const Item = (props) => {
      mapStateToProps,
      { fetchMarket })
      (Item)
+
+
+
+
+
+
+
+
+
+
 
 
 

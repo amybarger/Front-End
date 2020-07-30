@@ -1,88 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import { AxiosWithAuth } from '../utils/AxiosWithAuth';
-import { Route, useHistory } from 'react-router-dom';
-import Axios from 'axios';
+// import Additem from './Additem';
+import {  useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-// import
+import ItemsLayout from './ItemsLayout';
+import UpdateItem from './UpdateItem';
 
 let Dashboard = () => {
-  let [userItmes, setUsersItems] = useState([]);
-  let [editing, setediting] = useState(false);
+//   let [userItems, setUsersItems] = useState([]);
+  let [editing, setEditing] = useState(false)
 
-  let currentUserId = JSON.parse(localStorage.getItem('userId'));
-  let initalValue = {
+  let currentUserId = JSON.parse(localStorage.getItem('userId'))
+  let initialValue = {
     name: '',
     description: '',
     price: '',
     location: '',
-    // id: '',
+    id: '',
     user_id: currentUserId,
   };
-  const { push } = useHistory();
+
+  const history = useHistory();
   const [itemToEdit, setItemToEdit] = useState(initialValue);
   console.log(itemToEdit, 'itemToEdit');
 
   useEffect(() => {
-    axios.get('https://build-week-app.herokuapp.com/api/items').then((res) => {
-      console.log(res, 'userItmes');
-      setUsersItems(res.data.data);
+    AxiosWithAuth()
+    .get('api/items')
+    .then((res) => {
+      console.log(res, 'userItems');
+      setItemToEdit(res.data.data);
     });
   }, []);
 
-  let filteredList = userItems.filter(
-    (projects) => items.user_id === currentUserId
-  );
 
-  let updatFunc = (itemId) => {
+  let updateFunc = itemsId => {
     AxiosWithAuth()
-      .put(`/api/items/${itemId}`, itemToEdit)
+      .put(`/api/items/${itemsId}`, itemToEdit)
       .then((response) => {
         setItemToEdit(response.data);
-        push('/dashboard');
+       history.push('/dashboard')
         console.log('Data has updated', response.data);
       });
   };
 
-  let deleteItem = (ItemId) => {
+  let deleteItem = itemId => {
     AxiosWithAuth()
       .delete(`/api/items/${itemId}`)
-      .then((res) => {
+      .then(res => {
         console.log(res);
         refresh();
       })
       .catch((err) => {
         console.log(err);
-      });
-  };
+      })
+  }
 
   const refresh = () => {
     window.location.reload(true);
-  };
+  }
 
   return (
     <>
-      <div>
-        {filteredList.map((projects) => {
-          return (
-            <ItemLayout deleteItem={deleteItem} item={items} key={items.id} />
-          );
+      {/* <div>
+        {filteredList.map((items) => {
+          return <ItemsLayout deleteItem={deleteItem} item = {items} key = {items.id} />;
         })}
-      </div>
-      <button onClick={() => editing(true)}></button>
-      <div>
-        {filteredList.map((itmes) => {
-          return (
-            <UpdateItem
+
+      </div> */}
+      {/* <button onClick={() => editing(true)}></button> */}
+      {/* <div> */}
+
+        {/* {filteredList.map((item) => {
+          return <UpdateItem
               updateFunc={updateFunc}
-              items={item}
+              item={item}
               setItemToEdit={setItemToEdit}
               itemToEdit={itemToEdit}
             />
-          );
         })}
-      </div>
-      <Additem />
+      </div> */}
+     
     </>
-  );
-};
+  )
+}
 export default Dashboard;
