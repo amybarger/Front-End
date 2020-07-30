@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Nav from './Nav';
+// import Nav from './Nav';
 import * as yup from 'yup';
 import axios from 'axios';
 import { AxiosWithAuth } from '../utils/AxiosWithAuth';
@@ -85,7 +85,7 @@ export default function Signup() {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <form onSubmit={formSubmit}>
         <h2> Welcome</h2>
         <label htmlFor='first_name'>

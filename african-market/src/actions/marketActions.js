@@ -6,7 +6,7 @@ export const fetchMarket = () => {
     return dispatch => {
         dispatch({ type: 'FETCH_MARKET_START'}) ;
         axios
-            .get('')
+            .get('https://build-week-app.herokuapp.com/api/items')
             .then(res => {
                 dispatch({ type: 
                'FETCH_MARKET_SUCCESS',
@@ -25,13 +25,13 @@ export const fetchMarket = () => {
 export const itemPost = (newItem) => {
     return dispatch => {
         axios
-            .post('https://build-week-app.herokuapp.com/api/items'), {
+            .post('https://build-week-app.herokuapp.com/api/items', {
                 name: newItem.name,
                 description: newItem.description,
                 price: newItem.price,
-                location: newItem.location,
-                id: Date.now()
-            }
+                location_id: newItem.location_id,
+                // id: Date.now()
+            })
             .then(response => {console.log("Response received for items", response)
             dispatch({ type: 'ITEM_POST', payload: response.data })
             })

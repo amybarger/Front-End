@@ -1,7 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 function Nav() {
+
+  const history = useHistory();
+    const logout = e => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        history.push('/login')
+    }
+
   return (
     <div>
       <nav className="nav-header">
@@ -10,9 +18,9 @@ function Nav() {
           <Link to="/signup">Sign Up</Link>
           <Link to="/login">Login</Link>
           <Link to="/Home">Home</Link>
+          <button onClick={logout}>Log Out</button>
         </div>
-      </nav>
-      
+      </nav>  
     </div>
   )
 }
