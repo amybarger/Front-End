@@ -66,13 +66,14 @@ const AddItem = (props) => {
                     Location:
                     <input
                         type="text"
-                        name="location"
-                        id="location"
+                        name="location_id"
+                        id="location_id"
                         value={formState.location_id}
                         onChange={inputChange}
                         required
                         />
                 </label>
+                <button>Submit</button>
             </form>
         </div>
     )

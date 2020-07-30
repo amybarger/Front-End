@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Nav from "./Nav"
+// import Nav from "./Nav"
 import * as yup from "yup";
 // import axios from "axios"; Furno's axios call
 
@@ -14,8 +14,8 @@ const formSchema = yup.object().shape({
 
 export default function LoginForm() {
   const [formState, setFormState] = useState({
-    Password: "",
-    Username: ""
+    password: "",
+    username: ""
   });
  const history = useHistory() 
 
@@ -60,23 +60,22 @@ export default function LoginForm() {
     setFormState({ ...formState, [e.target.name]: value });
   };
 
-  const formSubmit = user => {
+  // const formSubmit = user => {
 
-    // formSubmit = e => {
-      //   e.preventDefault();
-      //   console.log("form submitted!");
+    const formSubmit = e => {
+        e.preventDefault();
+        console.log("form submitted!");
       //   axios
       //     .post("https://build-week-app.herokuapp.com", formState)
       //     .then(response => console.log(response))
       //     .catch(err => console.log(err));
       // };
       AxiosWithAuth()
-      .post('/api/login', user)
+      .post('api/login', formState)
       .then((res) => {
         console.log(res, 'res from post');
-        localStorage.setItem('token', JSON.stringify(res.data.token));
-        localStorage.setItem('userId', JSON.stringify(res.data.data.id));
-        history.push('/dashboard');
+        localStorage.setItem('token', res.data.token);
+        history.push('/Home');
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +84,7 @@ export default function LoginForm() {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
 
       <form onSubmit={formSubmit}>
 
@@ -97,7 +96,6 @@ export default function LoginForm() {
             id="usernameInput"
             type="username"
             name="username"
-
             value={formState.username}
             onChange={inputChange}
           />

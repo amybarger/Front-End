@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchMarket } from '../actions/marketActions';
+import { Link } from 'react-router-dom'
 
 const Item = (props) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Item = (props) => {
           })}
       </div>
       <p className='error'>{props.error}</p>
+      <Link to ='/Additem'>Add Item</Link>
     </div>
    );
   };
@@ -39,16 +41,3 @@ const Item = (props) => {
      mapStateToProps,
      { fetchMarket })
      (Item)
-
-
-
-
-
-
-
-
-
-
-
-
-
