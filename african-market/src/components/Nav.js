@@ -7,14 +7,16 @@ function Nav() {
       <nav className="nav-header">
         <h1>African Marketplace</h1>
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/Home">Home</Link>
         </div>
       </nav>
-     
+      
     </div>
   )
 }
 
 export default Nav;
+
+

@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import Dashboard from './Dashboard';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const token = localStorage.getItem('token');
+let PrivateRoute = ({ component: Component, ...rest }) => {
+  let token = localStorage.getItem('token');
   return (
     <Route
       {...rest}
       render={() => {
         if (token) {
           //render component
-          return <Component />;
+          return <Dashboard />;
         } else {
           //redirect to login
-          return <Redirect to='/login' />; 
+          return <Redirect to='/' />; 
         }
       }}
     />
