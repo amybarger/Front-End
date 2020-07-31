@@ -15,6 +15,10 @@ Dark Sand: #a28089 */
 
 body {
   background-color: #edf7f6;
+  background-image: url('https://dx6iy6yk2x0g.cloudfront.net/images/0c6/c4b/0c6c4b57a9e105389df77fee735648af0f99107b-640x360.jpg?compressionQuality=80&id=51c386f06747df592c000006&op=cropThumbnail&version=1');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
 }
 
 .App-logo {
@@ -52,6 +56,35 @@ body {
   }
 }
 
+h3 {
+  margin-top: 5%;
+}
+
+h4 {
+  margin-bottom: 5%;
+}
+
+.elementsBackground {
+  background-color: #edf7f6;
+  padding: 3%;
+  color: #a28089;
+  font-weight: bold;
+}
+
+.loginColors {
+  /* display: flex;
+  flex-direction: column; */
+  /* background-color: white; */
+  /* padding: 20%; */
+  color: white;
+  font-weight: bold;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-size: 1rem;
+  /* width: 10%, 5%, 10%, 5%; */
+  /* border: 2px solid black; */
+}
+
 /* nav css*/
 h1{
   font-size: 2.5rem;
@@ -80,28 +113,47 @@ nav {
   color: #282c34;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.addItemButton {
+  background-color: white;
+  padding: 1%;
+  color: #a28089;
+  border: 1px solid #a28089;
+  width: 10%;
+}
+
+.alignButtons {
+display: flex;
+justify-content: space-evenly;
+/* border: 2px solid black; */
+/* margin-right: 60%;
+margin-left: 30%; */
+width: 100%;
+}
+
+
 /* signup forms css */
 form {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 4rem;
-  color: #282c34;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+
+   padding: 10%; 
+
 }
 label {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: 10px 0;
+  align-items: center;
+  /* margin-left: 2%; */
   font-size: 1.3rem;
+  font-weight: bold;
 }
 h2{
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
+  /* border: 2px solid black; */
+  /* width: 300%; */
+  /* border: 2px solid white; */
+  /* margin-right: -100%; */
   
 
 }
@@ -114,11 +166,17 @@ input {
   color: #282c34;
   padding: 10px;
 }
+
 button{
   width: 150px;
   display: inline-block;
   padding:10px;
 }
+
+/* .addItemsHeader {
+  width: 20%;
+  border: 2px solid black;
+} */
 
 /* card */
 
@@ -136,6 +194,7 @@ button{
 
 .footer {
     background-color:#a28089;
-    padding: 4%;
+    padding: 5%;
+    margin-top: 3%;
   }
   

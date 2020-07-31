@@ -29,6 +29,8 @@ const AddItem = (props) => {
     return (
         <div>
             <form onSubmit={formSubmit}>
+            <div className="loginColors">
+                <h2 className="addItemsHeader">Add Items</h2>
                 <label htmlFor="name">
                     Item Name:
                     <input
@@ -74,6 +76,7 @@ const AddItem = (props) => {
                         />
                 </label>
                 <button>Submit</button>
+                </div>
             </form>
         </div>
     )

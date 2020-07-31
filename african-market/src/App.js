@@ -9,6 +9,7 @@ import Item from "./components/Items"
 import Axios from "axios";
 import AddItem from "./components/AddItem"
 import Footer from "./components/footer"
+import UpdateItemPage from "./components/UpdateItemPage"
 
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
@@ -42,6 +43,12 @@ export default function App(props) {
     <Router>
     <div className='App'>
       <Nav />
+      <div className="elementsBackground">
+      <h3>Welcome to African Market!</h3>
+      <h4>Sign up, login, or logout above</h4>
+   
+      <p>African Market empowers African business women to buy items internationally for their business.</p>
+      </div>
         <Switch>
           <PrivateRoute exact path='/Home' component={Dashboard} itemToEdit = {itemToEdit} setItemEdit = {setItemToEdit} />
 
@@ -56,6 +63,8 @@ export default function App(props) {
           <Route exact path='/Additem'>
             <AddItem />
           </Route>
+
+          <Route path='/EditItem/:id' component={UpdateItemPage}/>
           
         </Switch>
         <Footer />

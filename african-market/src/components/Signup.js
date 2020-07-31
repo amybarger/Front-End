@@ -87,6 +87,7 @@ export default function Signup() {
     <div>
       {/* <Nav /> */}
       <form onSubmit={formSubmit}>
+        <div className="loginColors">
         <h2> Welcome</h2>
         <label htmlFor='first_name'>
           First Name
@@ -149,6 +150,7 @@ export default function Signup() {
         {/* this is a comment  */}
 
         <button disabled={buttonDisabled}>Submit</button>
+        </div>
       </form>
     </div>
   );

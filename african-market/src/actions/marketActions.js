@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_MARKET_FAILURE = 'FETCH_MARKET_FAILURE';
 
 export const fetchMarket = () => {
+
     return dispatch => {
         dispatch({ type: 'FETCH_MARKET_START'}) ;
         axios
@@ -22,6 +23,7 @@ export const fetchMarket = () => {
     }
 }
 
+
 export const itemPost = (newItem) => {
     return dispatch => {
         axios
@@ -29,7 +31,7 @@ export const itemPost = (newItem) => {
                 name: newItem.name,
                 description: newItem.description,
                 price: newItem.price,
-                location_id: newItem.location_id,
+                location_id: newItem.location_id
                 // id: Date.now()
             })
             .then(response => {console.log("Response received for items", response)
@@ -38,5 +40,21 @@ export const itemPost = (newItem) => {
             .catch(err => console.log("Items not retreived from server", err))
     }
 }
+
+// export const itemUpdate = (editItem) => {
+//     return dispatch => {
+//         axios
+//             .put(`https://build-week-app.herokuapp.com/api/items/${id}`, {
+//                 name: editItem.name,
+//                 description: editItem.description,
+//                 price: editItem.price,
+//                 location_id: editItem.location_id
+//             })
+//             .then(response => {console.log("Response received for editing items", response)
+//             dispatch({ type: 'EDIT_ITEM', payload: response.data })
+//         })
+//         .catch(err => console.log("Can't update items", err))
+//     }
+// }
 // comment
 
