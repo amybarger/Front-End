@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_MARKET_FAILURE = 'FETCH_MARKET_FAILURE';
 
 export const fetchMarket = () => {
+
     return dispatch => {
         dispatch({ type: 'FETCH_MARKET_START'}) ;
         axios
@@ -21,6 +22,7 @@ export const fetchMarket = () => {
             })
     }
 }
+
 
 export const itemPost = (newItem) => {
     return dispatch => {

@@ -38,7 +38,6 @@ let Dashboard = () => {
 
   return (
           <div>
-          <UpdateItem />
            <Item />
           </div>
   );

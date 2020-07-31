@@ -9,6 +9,7 @@ import Item from "./components/Items"
 import Axios from "axios";
 import AddItem from "./components/AddItem"
 import Footer from "./components/footer"
+import UpdateItemPage from "./components/UpdateItemPage"
 
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
@@ -62,6 +63,8 @@ export default function App(props) {
           <Route exact path='/Additem'>
             <AddItem />
           </Route>
+
+          <Route path='/EditItem/:id' component={UpdateItemPage}/>
           
         </Switch>
         <Footer />
