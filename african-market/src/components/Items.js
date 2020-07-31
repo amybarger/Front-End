@@ -27,7 +27,8 @@ const Item = (props) => {
   const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
-    props.fetchMarket(setRefresh)
+    if (refresh) {props.fetchMarket();
+    setRefresh(false)}
   }, [refresh]);
 
   const history = useHistory();
@@ -40,7 +41,8 @@ const Item = (props) => {
     axios
       .delete(`https://build-week-app.herokuapp.com/api/items/${id}`)
       .then(res => {console.log(res)})
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(setRefresh(true))
   };
 
   return (
@@ -87,3 +89,6 @@ const Item = (props) => {
      mapStateToProps,
      { fetchMarket })
      (Item)
+
+    //  comment
+    // comment
