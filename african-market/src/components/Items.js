@@ -89,3 +89,5 @@ const Item = (props) => {
      mapStateToProps,
      { fetchMarket })
      (Item)
+
+    //  comment
