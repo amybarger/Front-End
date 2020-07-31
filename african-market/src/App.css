@@ -116,10 +116,22 @@ nav {
 
 .addItemButton {
   background-color: white;
-  padding: .5%;
+  padding: 1%;
   color: #a28089;
   border: 1px solid #a28089;
+  width: 10%;
 }
+
+.alignButtons {
+display: flex;
+justify-content: space-evenly;
+/* border: 2px solid black; */
+/* margin-right: 60%;
+margin-left: 30%; */
+width: 100%;
+}
+
+
 /* signup forms css */
 form {
 
@@ -154,6 +166,7 @@ input {
   color: #282c34;
   padding: 10px;
 }
+
 button{
   width: 150px;
   display: inline-block;

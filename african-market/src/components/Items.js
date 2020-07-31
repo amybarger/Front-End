@@ -39,14 +39,18 @@ const Item = (props) => {
                 <p>{itemList.price}</p>
                 <p>{itemList.location}</p>
                 </div>
+                <button>Edit</button>
+                <button>Delete</button>
               </Card>
               </Cardholder>
             );
           })}    
       </div>
       <p className='error'>{props.error}</p>
-      
+      <div className="alignButtons">
       <Link className="addItemButton" to ='/Additem'>Add Item</Link>
+     
+      </div>
     
     </div>
    );

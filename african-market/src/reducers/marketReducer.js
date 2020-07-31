@@ -31,6 +31,13 @@ export const marketReducer = (state = initialState, action) => {
                 isFetching: false,
                 error: ''
             }
+        // case 'EDIT_ITEM' :
+        //     return {
+        //         ...state,
+        //         market: action.payload,
+        //         isFetching: false,
+        //         error: ''
+        //     }
         default:
             return state;    
         
