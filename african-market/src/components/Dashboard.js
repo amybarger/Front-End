@@ -4,6 +4,7 @@ import { Route, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 import ItemsCard from "./ItemsCard"
 import Item from "./Items"
+// import UpdateItem from "./UpdateItem"
 
 // import
 
@@ -33,6 +34,7 @@ let Dashboard = (props) => {
   return (
           <div>
            <Item />
+           {/* <UpdateItem /> */}
           </div>
   );
 };
