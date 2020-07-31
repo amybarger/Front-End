@@ -18,7 +18,7 @@ function Nav() {
           <Link to="/signup">Sign Up</Link>
           <Link to="/login">Login</Link>
           <Link to="/Home">Home</Link>
-          <button onClick={logout}>Log Out</button>
+          <Link onClick={logout}>Log Out</Link>
         </div>
       </nav>  
     </div>
