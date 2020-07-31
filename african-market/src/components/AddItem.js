@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { itemPost } from '../actions/marketActions'; 
+import { useHistory } from 'react-router-dom'
 
 const AddItem = (props) => {
+
+    const history = useHistory();
+
     const [formState, setFormState] = useState({
 
         name: "",
@@ -20,6 +24,8 @@ const AddItem = (props) => {
         price: "",
         location_id: ""
         })
+
+        history.push("/Home")
     }
 
     const inputChange = (e) => {
@@ -75,7 +81,7 @@ const AddItem = (props) => {
                         required
                         />
                 </label>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
