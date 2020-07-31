@@ -9,6 +9,8 @@ import styled from 'styled-components'
 const Cardholder = styled.div`
 display: flex;
 flex-wrap: wrap;
+background-color: white;
+padding: 5%;
 `
 const Card = styled.div `
 padding:5%;
@@ -37,13 +39,19 @@ const Item = (props) => {
                 <p>{itemList.price}</p>
                 <p>{itemList.location}</p>
                 </div>
+                <button>Edit</button>
+                <button>Delete</button>
               </Card>
               </Cardholder>
             );
           })}    
       </div>
       <p className='error'>{props.error}</p>
-      <Link to ='/Additem'>Add Item</Link>
+      <div className="alignButtons">
+      <Link className="addItemButton" to ='/Additem'>Add Item</Link>
+     
+      </div>
+    
     </div>
    );
   };

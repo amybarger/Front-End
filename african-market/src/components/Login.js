@@ -88,6 +88,7 @@ export default function LoginForm() {
 
       <form onSubmit={formSubmit}>
 
+        <div className="loginColors">
         <h2>Welcome</h2>
         <label htmlFor="usernameInput">
           Username
@@ -113,6 +114,7 @@ export default function LoginForm() {
         </label>
 
         <button disabled={buttonDisabled}>Submit</button>
+        </div>
       </form>
     </div>
   );

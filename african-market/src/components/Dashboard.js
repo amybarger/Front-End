@@ -5,20 +5,25 @@ import Axios from 'axios';
 import ItemsCard from "./ItemsCard"
 import Item from "./Items"
 
+import UpdateItem from "./UpdateItem"
+
 // import
 
-let Dashboard = (props) => {
+let Dashboard = () => {
   // let [userItems, setUsersItems] = useState([]);
   // let [editing, setediting] = useState(false);
+  // let history = useHistory()
 
-  // let initalValue = {
-  //   name: '',
-  //   description: '',
-  //   price: '',
-  //   location: '',
-  // };
+  // let itemId = JSON.parse(localStorage.getItem('itemId'))
+  //       let initialValue = {
+  //           name: '',
+  //           description: '',
+  //           price: '',
+  //           location_id: '',
+  //       }
+  //       history.push('/Home');
 
-  // const [itemToEdit, setItemToEdit] = useState(initalValue);
+  // const [itemToEdit, setItemToEdit] = useState(inital);
   // console.log(itemToEdit, 'itemToEdit');
 
   // useEffect(() => {
@@ -30,8 +35,10 @@ let Dashboard = (props) => {
   //   });
   // }, []);
 
+
   return (
           <div>
+          <UpdateItem />
            <Item />
           </div>
   );

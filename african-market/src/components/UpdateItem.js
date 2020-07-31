@@ -1,12 +1,27 @@
-// import React, { useState } from 'react';
-// import { AxiosWithAuth } from '../utils/AxiosWithAuth';
-// import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams,useHistory } from 'react-router-dom';
 
 // const UpdateItem = props => {
+//      console.log(props, 'updateitem')
+//     let {itemToEdit, setItemToEdit, item, updateFunc} = props
+    
 //     const { items, getUpdateitems } = useState(initial);
 
-//     console.log(props, 'updateitem')
-//     let {itemToEdit, setItemToEdit, item, updateFunc} = props
+//     let deleteItem = itemId => {
+//         AxiosWithAuth()
+//         .delete(`/api/items/${itemId}`)
+//         .then(res => {
+//           console.log(res)
+//           refresh()
+//         })
+//         .catch(err => {
+//           console.log(err)
+//         })
+//       }
+//       const refresh = () => {
+//         window.location.reload(true)
+//       }
 
 //     const handleSubmit = (evt) => {
 //         updateFunc(item.id);
@@ -21,8 +36,18 @@
 
 //     return(
 //         <div>
-//             <form onSubmit = {handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
-            
+//              <form onSubmit = {handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+//            {filteredList.map((items) => {
+//                return 
+//                 <itemLayout 
+//                 deleteitem = {deleteitem} 
+//                 item = {items}
+//                 key = {item.id}
+//                 />
+//            })}
+//            <div>
+//                <button onClick={() => editing(true)}></button>
+//            </div>
 //             <h3>Need to make changes?</h3>
 //             <label>Item</label>
 //             <input type = 'text'
@@ -56,13 +81,13 @@
 //             value = {itemToEdit.location}
 //             />
 
-//             <label>Id</label>
+//             {/* <label>Id</label>
 //             <input type = 'id'
 //             name =  'id'
 //             placeholder = {item.id}
 //             onChange = {handleChange}
 //             value = {itemToEdit.id}
-//             />
+//             /> */}
 
 //             <button> Submit for changes </button>
             
@@ -71,4 +96,109 @@
 //         </div>
 //     )
 // }
-// export default UpdateItem
+
+export default function Updateitem() {
+    const { itemList, getItemList } = useState([]);
+
+    const id = useParams().id;
+
+    const initial = {
+      name: '',
+      description: '',
+      price: '',
+      location_id: [],
+    };
+
+    const [itemToEdit, setItemToEdit] = useState(initial);
+    // const [movie, setMovie]
+
+    const { push } = useHistory();
+
+    useEffect(() => {
+      axios
+        .get(`https://build-week-app.herokuapp.com/api/items/${id}`)
+        .then((res) => setItemToEdit(res.data))
+        .catch((err) => console.log(err))
+     },[])
+
+    const [value, setValue] = useState(itemToEdit);
+
+    // const itemEdit = [...itemToEdit.initial];
+    // console.log(itemEdit, "itemEdit stuff")
+    // const itemList = [...movie.stars];
+    // const mstars = [...movie.stars];
+
+    const onChangeHandle = (e) => {
+    //   const name = evt.target.name;
+    //   const changevalue = evt.target.value;
+    //   const id = evt.target.id;
+    setItemToEdit({...itemToEdit, [e.target.name]: e.target.value})
+
+    //   if (name === 'initial') {
+    //     itemEdit[id] = changevalue || itemToEdit.initial[id];
+    //     console.log(itemEdit);
+    //   } else {
+    //     setValue({ ...itemToEdit, [name]: changevalue });
+    //   }
+    };
+
+    const onSubmitHandle = (evt) => {
+        evt.preventDefault();
+
+        setValue({ ...value, initial: itemToEdit });
+        console.log(value);
+
+      axios
+        .put(`https://build-week-app.herokuapp.com/api/items/${id}`, value)
+        .then((res) => {
+          console.log(res);
+          getItemList();
+          push('/Home');
+        })
+        .catch((err) => console.log(err));
+    };
+    const deleteItem = (evt) => {
+      axios
+        .delete(`https://build-week-app.herokuapp.com/api/items/${id}`)
+        .then((res) => {
+        getItemList();
+        push('/Home');
+      });
+    };
+    return (
+      <form onSubmit={onSubmitHandle}>
+          <label htmlFor='name'>Name</label>
+        <input
+          type='text'
+          onChange={onChangeHandle}
+          name='name'
+          placeholder={`name: ${itemToEdit.name}`}
+        />
+         <label htmlFor='description'>Description</label>
+        <input
+          type='text'
+          onChange={onChangeHandle}
+          name='description'
+          placeholder={`description: ${itemToEdit.description}`}
+        />
+         <label htmlFor='price'>Price</label>
+        <input
+          type='text'
+          onChange={onChangeHandle}
+          name='price'
+          placeholder={`price: ${itemToEdit.price}`}
+        />
+         <label htmlFor='location_id'>Location</label>
+        <input
+          type='text'
+          onChange={onChangeHandle}
+          name='location_id'
+          placeholder={`location_id: ${itemToEdit.location_id}`}
+        />
+    
+        <button onClick={onSubmitHandle}>edit</button>
+        <button onClick={deleteItem}>delete</button>
+      </form>
+ 
+      )
+    };
